@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-cream text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  /* Logo Styling */
+  .logo-container {
+    position: relative;
+  }
+
+  .logo-sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 10px 24px 10px 16px;
+    border: 3px solid #2D3436;
+    border-radius: 50px;
+    box-shadow: 5px 5px 0 #2D3436;
+    transform: rotate(-2deg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .logo-sticker:hover {
+    transform: rotate(0) translateY(-2px);
+    box-shadow: 6px 6px 0 #2D3436;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #8FE402 0%, #7ACC01 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    border: 2px solid #2D3436;
+    box-shadow: 2px 2px 0 #2D3436;
+    animation: logo-bounce 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-sticker:hover .logo-icon {
+    animation: logo-spin 0.6s ease-in-out;
+  }
+
+  .logo-text {
+    font-weight: 900;
+    font-size: 26px;
+    color: #2D3436;
+    letter-spacing: -0.02em;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .logo-sticker::after {
+    content: "NEW";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #FF6B6B;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 2px solid #2D3436;
+    transform: rotate(12deg);
+    box-shadow: 2px 2px 0 #2D3436;
+  }
+
+  /* Small Logo Variant */
+  .logo-sticker-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 8px 18px 8px 12px;
+    border: 2px solid #2D3436;
+    border-radius: 40px;
+    box-shadow: 3px 3px 0 #2D3436;
+    transform: rotate(-1deg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .logo-sticker-small:hover {
+    transform: rotate(0) translateY(-1px);
+    box-shadow: 4px 4px 0 #2D3436;
+  }
+
+  .logo-sticker-small .logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #8FE402 0%, #7ACC01 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid #2D3436;
+    box-shadow: 1px 1px 0 #2D3436;
+    animation: logo-bounce 2s ease-in-out infinite;
+  }
+
+  .logo-sticker-small .logo-text {
+    font-weight: 800;
+    font-size: 18px;
+    color: #2D3436;
+    letter-spacing: -0.01em;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .logo-sticker-small::after {
+    display: none;
+  }
+
+  /* Typography Styles */
+  .hero-title {
+    @apply font-display font-black text-5xl md:text-6xl lg:text-7xl leading-none;
+    letter-spacing: -0.02em;
+  }
+  
+  .section-title {
+    @apply font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight;
+    letter-spacing: -0.01em;
+  }
+  
+  .highlight-lime {
+    @apply text-lime;
+    text-shadow: 0 4px 8px rgba(143, 228, 2, 0.2);
+  }
+  
+  .highlight-coral {
+    @apply text-coral;
+  }
+  
+  .highlight-orange {
+    @apply text-orange;
+  }
+  
+  .highlight-purple {
+    @apply text-purple;
+  }
+  
+  /* Enhanced Button Styles */
+  .btn-primary {
+    @apply bg-lime text-black font-bold py-4 px-8 rounded-full transition-all duration-200;
+    border: 3px solid #2D3436;
+    box-shadow: 4px 4px 0 #2D3436;
+    transform: translateY(0) rotate(-1deg);
+  }
+  
+  .btn-primary:hover {
+    @apply bg-lime-dark;
+    transform: translateY(-2px) rotate(0deg);
+    box-shadow: 6px 6px 0 #2D3436;
+  }
+  
+  .btn-primary:active {
+    transform: translateY(2px) rotate(-1deg);
+    box-shadow: 2px 2px 0 #2D3436;
+  }
+  
+  .btn-secondary {
+    @apply bg-coral hover:bg-coral-light text-white font-bold py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-coral;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-gray-800 hover:bg-gray-800 hover:text-white text-gray-800 font-bold py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .btn-teal {
+    @apply bg-teal hover:bg-teal-light text-white font-bold py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-teal;
+  }
+  
+  /* Sticker Navigation Pills */
+  .nav-pill {
+    @apply bg-white rounded-full px-6 py-3 font-bold text-sm transition-all duration-200;
+    border: 3px solid #2D3436;
+    box-shadow: 4px 4px 0 #2D3436;
+    transform: rotate(-1deg);
+  }
+  
+  .nav-pill:nth-child(2n) {
+    transform: rotate(1deg);
+  }
+  
+  .nav-pill:nth-child(3n) {
+    transform: rotate(-0.5deg);
+  }
+  
+  .nav-pill:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 6px 6px 0 #2D3436;
+  }
+  
+  /* Sticker Card Styles */
+  .sticker-card {
+    @apply bg-white rounded-2xl p-8 relative transition-all duration-200;
+    border: 3px solid #2D3436;
+    box-shadow: 6px 6px 0 #2D3436;
+    transform: rotate(-1deg);
+  }
+  
+  /* Sticker Card variant for content that needs more space */
+  .sticker-card-content {
+    @apply bg-white rounded-2xl p-4 relative transition-all duration-200;
+    border: 3px solid #2D3436;
+    box-shadow: 6px 6px 0 #2D3436;
+    transform: rotate(0deg);
+  }
+  
+  .sticker-card-content:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 8px 8px 0 #2D3436;
+  }
+
+  /* Sticker Card variant without hover effects */
+  .sticker-card-static {
+    @apply bg-white rounded-2xl p-4 relative;
+    border: 3px solid #2D3436;
+    box-shadow: 6px 6px 0 #2D3436;
+    transform: rotate(0deg);
+  }
+  
+  .sticker-card:nth-child(2n) {
+    transform: rotate(1deg);
+  }
+  
+  .sticker-card:nth-child(3n) {
+    transform: rotate(-0.5deg);
+  }
+  
+  .sticker-card:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 8px 8px 0 #2D3436;
+  }
+  
+  /* Feature card colors */
+  .feature-card:nth-child(1) {
+    @apply bg-lime/10;
+  }
+  
+  .feature-card:nth-child(2) {
+    @apply bg-orange/10;
+  }
+  
+  .feature-card:nth-child(3) {
+    @apply bg-purple/10;
+  }
+  
+  /* Song Card Styles */
+  .song-card {
+    @apply bg-white rounded-2xl p-5 flex items-center gap-4 cursor-pointer transition-all duration-200;
+    border: 3px solid #2D3436;
+    box-shadow: 4px 4px 0 #2D3436;
+    transform: rotate(-0.5deg);
+  }
+  
+  .song-card:hover {
+    transform: rotate(0) scale(1.02);
+    box-shadow: 6px 6px 0 #2D3436;
+  }
+  
+  .song-icon {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center text-3xl;
+    border: 2px solid #2D3436;
+    box-shadow: 2px 2px 0 #2D3436;
+  }
+  
+  .song-card:nth-child(1) .song-icon { @apply bg-lime; }
+  .song-card:nth-child(2) .song-icon { @apply bg-coral; }
+  .song-card:nth-child(3) .song-icon { @apply bg-orange; }
+  .song-card:nth-child(4) .song-icon { @apply bg-purple; }
+  
+  /* Legacy card styles for other components */
+  .card-game {
+    @apply sticker-card;
+  }
+  
+  .card-feature {
+    @apply sticker-card;
+  }
+  
+  /* Input Styles */
+  .input-game {
+    @apply bg-white border-2 border-gray-200 rounded-2xl px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-lime/20 focus:border-lime transition-all duration-200;
+  }
+  
+  /* Chat Styles */
+  .chat-message {
+    @apply bg-white rounded-2xl p-4 mb-3 shadow-soft border border-gray-100 transition-all duration-200 hover:shadow-card;
+  }
+  
+  .chat-message-own {
+    @apply bg-lime rounded-2xl p-4 mb-3 shadow-lime/20 text-black font-medium;
+  }
+  
+  .chat-message-system {
+    @apply bg-gradient-to-r from-purple-game/10 to-blue-game/10 rounded-2xl p-3 mb-3 text-center text-gray-700 font-medium border border-purple-game/20;
+  }
+  
+  /* Karaoke Lyrics */
+  .karaoke-text {
+    @apply text-2xl md:text-3xl lg:text-4xl font-display font-bold text-center leading-relaxed;
+  }
+  
+  .karaoke-current {
+    @apply text-white bg-lime px-6 py-3 rounded-2xl shadow-lime transform scale-110;
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .karaoke-upcoming {
+    @apply text-gray-600;
+  }
+  
+  .karaoke-past {
+    @apply text-gray-400;
+  }
+  
+  /* Gaming UI Elements */
+  .status-badge {
+    @apply bg-white rounded-full px-4 py-2 shadow-soft border border-gray-100 font-bold text-sm;
+  }
+  
+  .status-online {
+    @apply bg-lime text-black;
+  }
+  
+  .status-waiting {
+    @apply bg-orange text-white;
+  }
+  
+  /* Floating Decorations */
+  .floating-decoration {
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .floating-decoration-delayed {
+    position: absolute;
+    animation: float 3s ease-in-out infinite 1s;
+  }
+  
+  .floating-music-note {
+    position: absolute;
+    bottom: 30%;
+    left: 10%;
+    animation: float 3s ease-in-out infinite 0.5s;
+    font-size: 2rem;
+  }
+  
+  .floating-star {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    animation: float 2.5s ease-in-out infinite 2s;
+    font-size: 1.5rem;
+  }
+  
+  /* User Avatars */
+  .avatar {
+    @apply w-12 h-12 rounded-full border-4 border-white shadow-soft;
+  }
+  
+  .avatar-lime {
+    @apply border-lime;
+  }
+  
+  .avatar-coral {
+    @apply border-coral;
+  }
+  
+  .avatar-orange {
+    @apply border-orange;
+  }
+  
+  .avatar-purple {
+    @apply border-purple;
+  }
+  
+  /* Background Patterns */
+  .bg-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(143, 228, 2, 0.05) 0%, transparent 25%),
+      radial-gradient(circle at 75% 75%, rgba(255, 107, 107, 0.05) 0%, transparent 25%);
+  }
+  
+  .hero-bg {
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE8E8 50%, #FFF0F0 100%);
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-lime to-teal transition-all duration-500 ease-out rounded-full;
+  }
+  
+  /* Layout Helpers */
+  .hero-content {
+    @apply w-full lg:w-3/5 text-left;
+  }
+  
+  .hero-illustration {
+    @apply w-full lg:w-2/5 flex items-center justify-center;
+  }
+  
+  /* Microphone pulse animation */
+  .mic-pulse {
+    animation: mic-pulse 2s ease-in-out infinite;
+  }
+}
+
+/* Enhanced Animations */
+@keyframes logo-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(5deg); }
+}
+
+@keyframes logo-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes bounceSoft {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -10px, 0);
+  }
+  70% {
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 0 20px rgba(143, 228, 2, 0.4);
+    transform: scale(1.1);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(143, 228, 2, 0.6);
+    transform: scale(1.12);
+  }
+}
+
+@keyframes mic-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes scaleHover {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+} 
