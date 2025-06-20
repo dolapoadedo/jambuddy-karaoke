@@ -7,18 +7,41 @@ const fs = require('fs')
 const path = require('path')
 
 const app = express()
+
+// Environment-aware CORS configuration
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+  ? [
+      process.env.FRONTEND_URL,  // Your Vercel URL
+      // Add backup patterns for Vercel deployments
+      /^https:\/\/.*\.vercel\.app$/,
+      // Add your custom domains here if you have any
+    ].filter(Boolean)  // Remove undefined values
+  : [
+      "http://localhost:3000", 
+      "http://127.0.0.1:3000", 
+      "http://localhost:3001", 
+      "http://127.0.0.1:3001", 
+      "http://localhost:3002", 
+      "http://127.0.0.1:3002"
+    ];
+
+console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
+console.log('🌍 CORS allowed origins:', allowedOrigins);
+
 const server = http.createServer(app)
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001", "http://localhost:3002", "http://127.0.0.1:3002"],
-    methods: ["GET", "POST"]
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true
   }
 })
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001", "http://localhost:3002", "http://127.0.0.1:3002"],
-  methods: ["GET", "POST"]
+  origin: allowedOrigins,
+  methods: ["GET", "POST"],
+  credentials: true
 }))
 app.use(express.json())
 
